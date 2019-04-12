@@ -1,0 +1,13 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
+cache: packages
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database dettl_test_db;' -U postgres
+  - psql -h localhost -p 5432 -c "\l"
+  - Rscript -e 'con <- DBI::dbConnect(RPostgres::Postgres(), dbname = "dettl_test_db", user = "postgres",
+                 host = "localhost");DBI::dbListTables(con);DBI::dbDisconnect(con)'
+  - Rscript db_debug.R

@@ -1,0 +1,10 @@
+Package: travispostgreserror
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Author: Rob
+Maintainer: Rob <rob@imperial.ac.uk>
+Description: What the package does (one paragraph).
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports: DBI, RPostgres, RSQLite
